@@ -1,4 +1,4 @@
-class ForumsController::Forum  < ApplicationController
+class Forum::ForumsController  < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
