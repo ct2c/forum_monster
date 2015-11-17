@@ -1,11 +1,17 @@
 class CreateCategoriesTable < ActiveRecord::Migration
   def self.up
-    create_table :categories do |t|
-      t.string   :title
-      t.boolean  :state, :default => true
-      t.integer  :position, :default => 0
+    if !ActiveRecord::Base.connection.table_exists?("categories")
+      create_table :categories do |t|
+        t.string   :title
+        t.boolean  :state, :default => true
+        t.integer  :position, :default => 0
 
-      t.timestamps
+        t.timestamps
+      end
+    else
+      add_column :categories, :title, :string
+      add_column :categories, :state, :boolean, default: true
+      add_column :categories, :position, :integer, default: 0
     end
   end
 
