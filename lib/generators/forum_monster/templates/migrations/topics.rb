@@ -1,6 +1,6 @@
 class CreateTopicsTable < ActiveRecord::Migration
   def self.up
-    create_table :topics, :force => true do |t|
+    create_table :topics do |t|
       t.string   :title
       t.integer  :hits, :default => 0
       t.boolean  :sticky, :default => false

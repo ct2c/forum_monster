@@ -1,6 +1,6 @@
 class CreatePostsTable < ActiveRecord::Migration
   def self.up
-    create_table :posts, :force => true do |t|
+    create_table :posts do |t|
       t.text     :body
       t.integer  :forum_id
       t.integer  :topic_id

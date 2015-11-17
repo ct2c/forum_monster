@@ -1,6 +1,6 @@
 class CreateForumsTable < ActiveRecord::Migration
   def self.up
-    create_table :forums, :force => true do |t|
+    create_table :forums do |t|
       t.string   :title
       t.text     :description
       t.boolean  :state, :default => true
