@@ -7,7 +7,7 @@ class Forum < ActiveRecord::Base
   belongs_to :forum_category
 
   # Scopes
-  default_scope{ where(:order => 'position ASC') }
+  default_scope { order('position ASC') }
 
   # Validations
   validates :title,       :presence => true

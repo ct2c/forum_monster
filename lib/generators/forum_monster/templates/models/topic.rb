@@ -15,7 +15,7 @@ class Topic < ActiveRecord::Base
   validates :user,    :presence => true
 
   # Scopes
-  default_scope{ where(:order => 'sticky DESC, updated_at DESC')}
+  default_scope { order('sticky DESC, updated_at DESC') }
 
   # Callbacks
   after_create :create_initial_post

@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   validates :user, :presence => true
 
   # Default Scope
-  default_scope{ where(:order => 'created_at ASC') }
+  default_scope { order('created_at ASC') }
 
   # Scope to display only the last n posts. Used for "Recent Posts" display
   scope :recent, lambda {
