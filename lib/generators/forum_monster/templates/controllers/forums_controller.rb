@@ -1,42 +1,42 @@
-class ForumsController < ApplicationController    
+class ForumsController < ApplicationController
 
   def show
     @forum = Forum.find(params[:id])
   end
-  
+
   def new
     @forum = Forum.new
   end
-  
+
   def create
     @forum = Forum.new(permitted_params)
-    
+
     if @forum.save
-      flash[:notice] = "Forum was successfully created."
+      flash[:notice] = t('forums.controllers.forums.created_success')
       redirect_to forums_url
     else
       render :action => 'new'
     end
   end
-  
+
   def edit
     @forum = Forum.find(params[:id])
   end
-  
+
   def update
     @forum = Forum.find(params[:id])
-    
+
     if @forum.update_attributes(permitted_params)
-      flash[:notice] = "Forum was updated successfully."
+      flash[:notice] = t('forums.controllers.forums.updated_success')
       redirect_to forum_url(@forum)
     end
   end
-  
+
   def destroy
     @forum = Forum.find(params[:id])
-    
+
     if @forum.destroy
-      flash[:notice] = "Category was deleted."
+      flash[:notice] = t('forums.controllers.forums.deleted_success')
       redirect_to forums_url
     end
   end

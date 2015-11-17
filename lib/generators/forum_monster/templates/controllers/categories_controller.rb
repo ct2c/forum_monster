@@ -1,42 +1,42 @@
-class CategoriesController < ApplicationController  
+class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
   end
-  
+
   def new
     @category = Category.new
   end
-  
+
   def create
     @category = Category.new(permitted_params)
-    
+
     if @category.save
-      flash[:notice] = "Category was successfully created."
+      flash[:notice] = t('forums.controllers.categories.created_success')
       redirect_to forums_url
     else
       render :action => 'new'
     end
   end
-  
+
   def edit
     @category = Category.find(params[:id])
   end
-  
+
   def update
     @category = Category.find(params[:id])
-    
+
     if @category.update_attributes(permitted_params)
-      flash[:notice] = "Category was updated successfully."
+      flash[:notice] = t('forums.controllers.categories.updated_success')
       redirect_to forums_url
     end
   end
-  
+
   def destroy
     @category = Category.find(params[:id])
-    
+
     if @category.destroy
-      flash[:notice] = "Category was deleted."
+      flash[:notice] = t('forums.controllers.categories.deleted_success')
       redirect_to forums_url
     end
   end

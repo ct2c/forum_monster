@@ -1,0 +1,20 @@
+en:
+  forums:
+    controllers:
+      categories:
+        created_success: "La catégorie a bien été créée."
+        updated_success: "La catégorie a été éditée avec succès."
+        deleted_success: "La catégorie a été supprimée."
+      forums:
+        created_success: "Le forum a bien été créé."
+        updated_success: "Le forum a bien été édité."
+        deleted_success: "Le forum a été supprimé."
+      posts:
+        created_success: "Le message a été créé avec succès."
+        updated_success: "Le message a bien été édité."
+        destroy_success: "Le message a bien été supprimés."
+        topic_destroy_success: "Les topics ont été supprimés."
+      topics:
+        created_success: "Le topic a bien été créé."
+        updated_success: "Le topic a bien été édité."
+        deleted_success: "Le topic a bien été supprimé."

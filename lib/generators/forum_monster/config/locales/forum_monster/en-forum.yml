@@ -1,0 +1,22 @@
+en:
+  forums:
+    controllers:
+      categories:
+        created_success: "Category was successfully created."
+        updated_success: "Category was updated successfully."
+        deleted_success: "Category was deleted."
+      forums:
+        created_success: "Forum was successfully created."
+        updated_success: "Forum was updated successfully."
+        deleted_success: "Forum was deleted."
+      posts:
+        created_success: "Post was successfully created."
+        updated_success: "Post was successfully updated."
+        destroy_success: "Post was successfully destroyed."
+        topic_destroy_success: "Topic was successfully deleted."
+      topics:
+        created_success: "Topic was successfully created."
+        updated_success: "Topic was updated successfully."
+        deleted_success: "Topic was deleted successfully."
+  models:
+    topic_locked: "That topic is locked"
