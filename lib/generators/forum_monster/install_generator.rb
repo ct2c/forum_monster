@@ -42,10 +42,10 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
 
   def create_views
-    directory "views/categories", "app/views/categories"
-    directory "views/forums", "app/views/forums"
-    directory "views/topics", "app/views/topics"
-    directory "views/posts", "app/views/posts"
+    directory "views/categories", "app/views/forum/categories"
+    directory "views/forums", "app/views/forum/forums"
+    directory "views/topics", "app/views/forum/topics"
+    directory "views/posts", "app/views/forum/posts"
     template  "public/stylesheets/forum-monster.css", "public/stylesheets/forum-monster.css"
     template  "public/images/ruby.png", "public/images/ruby.png"
   end
