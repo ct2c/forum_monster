@@ -1,15 +1,15 @@
-class Forum::CategoriesController < ApplicationController
+class Forum::ForumCategoriesController < ApplicationController
 
   def index
-    @categories = Category.all
+    @categories = ForumCategory.all
   end
 
   def new
-    @category = Category.new
+    @category = ForumCategory.new
   end
 
   def create
-    @category = Category.new(permitted_params)
+    @category = ForumCategory.new(permitted_params)
 
     if @category.save
       flash[:notice] = t('forums.controllers.categories.created_success')
@@ -20,11 +20,11 @@ class Forum::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = ForumCategory.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = ForumCategory.find(params[:id])
 
     if @category.update_attributes(permitted_params)
       flash[:notice] = t('forums.controllers.categories.updated_success')
@@ -33,7 +33,7 @@ class Forum::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    @category = ForumCategory.find(params[:id])
 
     if @category.destroy
       flash[:notice] = t('forums.controllers.categories.deleted_success')
@@ -44,7 +44,7 @@ class Forum::CategoriesController < ApplicationController
   private
 
     def permitted_params
-      params.require(:category).permit(:title, :state, :position, :category_id)
+      params.require(:forum_category).permit(:title, :state, :position, :forum_category_id)
     end
 
 end

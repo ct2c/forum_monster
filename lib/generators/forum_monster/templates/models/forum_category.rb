@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class ForumCategory < ActiveRecord::Base
 
   # Associations
   has_many :forums, :dependent => :destroy

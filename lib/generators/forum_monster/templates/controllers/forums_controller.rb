@@ -44,6 +44,6 @@ class Forum::ForumsController  < ApplicationController
   private
 
     def permitted_params
-      params.require(:forum).permit(:title, :description, :state, :position, :category_id)
+      params.require(:forum).permit(:title, :description, :state, :position, :forum_category_id)
     end
 end

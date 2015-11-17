@@ -4,7 +4,7 @@ class Forum < ActiveRecord::Base
   has_many :topics, :dependent => :destroy
   has_many :posts, :through => :topics
 
-  belongs_to :category
+  belongs_to :forum_category
 
   # Scopes
   default_scope{ where(:order => 'position ASC') }

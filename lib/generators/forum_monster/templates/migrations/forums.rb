@@ -7,7 +7,7 @@ class CreateForumsTable < ActiveRecord::Migration
       t.integer  :topics_count, :default => 0
       t.integer  :posts_count, :default => 0
       t.integer  :position, :default => 0
-      t.integer  :category_id
+      t.integer  :forum_category_id
 
       t.timestamps
     end
