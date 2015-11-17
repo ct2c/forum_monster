@@ -23,10 +23,10 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
 
   def create_controllers
-    template "controllers/categories_controller.rb", "app/controllers/categories_controller.rb"
-    template "controllers/forums_controller.rb", "app/controllers/forums_controller.rb"
-    template "controllers/topics_controller.rb", "app/controllers/topics_controller.rb"
-    template "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
+    template "controllers/categories_controller.rb", "app/controllers/forum/categories_controller.rb"
+    template "controllers/forums_controller.rb", "app/controllers/forum/forums_controller.rb"
+    template "controllers/topics_controller.rb", "app/controllers/forum/topics_controller.rb"
+    template "controllers/posts_controller.rb", "app/controllers/forum/posts_controller.rb"
   end
 
   def create_models
@@ -35,10 +35,10 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     @singular_lower_case_name = user_model.singularize.underscore
     @plural_lower_case_name = user_model.pluralize.underscore
 
-  	template "models/category.rb", "app/models/category.rb"
-  	template "models/forum.rb", "app/models/forum.rb"
-    template "models/topic.rb", "app/models/topic.rb"
-    template "models/post.rb", "app/models/post.rb"
+  	template "models/category.rb", "app/models/forum/category.rb"
+  	template "models/forum.rb", "app/models/forum/forum.rb"
+    template "models/topic.rb", "app/models/forum/topic.rb"
+    template "models/post.rb", "app/models/forum/post.rb"
   end
 
   def create_views
@@ -59,8 +59,8 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
 
   def create_routes
-    route "resources :categories, :except => [:index, :show]
-  resources :forums, :except => :index do
+    route "resources :categories, :except => [:index, :show], :module => 'forum'
+  resources :forums, :module => 'forum', :except => :index do
     resources :topics, :shallow => true, :except => :index do
       resources :posts, :shallow => true, :except => [:index, :show]
     end

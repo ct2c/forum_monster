@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class PostsController::Forum  < ApplicationController
 
   def new
     @topic = Topic.find(params[:topic_id])
