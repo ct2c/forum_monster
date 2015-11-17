@@ -3,17 +3,17 @@ require 'rails/generators/migration'
 
 class ForumMonster::InstallGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
-  
+
   desc "Installs the ForumMonster Controllers, Models, Views, and Migrations."
-  
+
   argument :user_model, :type => :string, :required => false, :default => "User", :desc => "Your user model name."
-  
+
   attr_reader :singular_camel_case_name, :plural_camel_case_name, :singular_lower_case_name, :plural_lower_case_name
-  
+
   def self.source_root
     @source_root ||= File.join(File.dirname(__FILE__), 'templates')
   end
-    
+
   def self.next_migration_number(dirname)
     if ActiveRecord::Base.timestamped_migrations
       Time.now.utc.strftime("%Y%m%d%H%M%S")
@@ -34,7 +34,7 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     @plural_camel_case_name = user_model.pluralize.camelize
     @singular_lower_case_name = user_model.singularize.underscore
     @plural_lower_case_name = user_model.pluralize.underscore
-  	
+
   	template "models/category.rb", "app/models/category.rb"
   	template "models/forum.rb", "app/models/forum.rb"
     template "models/topic.rb", "app/models/topic.rb"
@@ -57,7 +57,7 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     migration_template 'migrations/posts.rb', 'db/migrate/create_posts_table.rb'
     migration_template 'migrations/user.rb', 'db/migrate/update_users_table.rb'
   end
-  
+
   def create_routes
     route "resources :categories, :except => [:index, :show]
   resources :forums, :except => :index do
@@ -67,7 +67,12 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     root :to => 'categories#index', :via => :get
   end"
   end
-  
+
+  def create_locales
+    template "config/locales/forum_monster/en-forum.yml", "config/locales/forum_monster/en-forum.yml"
+    template "config/locales/forum_monster/fr-forum.yml", "config/locales/forum_monster/fr-forum.yml"
+  end
+
   def self.next_migration_number(path)
     unless @prev_migration_nr
       @prev_migration_nr = Time.now.utc.strftime("%Y%m%d%H%M%S").to_i
