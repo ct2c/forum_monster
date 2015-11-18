@@ -1,4 +1,19 @@
 en:
+  activerecord:
+    models:
+      forum:
+        one:   "Forum"
+        other: "Forums"
+      forum_category:
+        one:   "Catégorie"
+        other: "Catégories"
+      post:
+        one:   "Message"
+        other: "Messages"
+        last:  "Dernier post"
+      topic:
+        one:   "Topic"
+        other: "Topics"
   forums:
     controllers:
       categories:
@@ -18,3 +33,38 @@ en:
         created_success: "Le topic a bien été créé."
         updated_success: "Le topic a bien été édité."
         deleted_success: "Le topic a bien été supprimé."
+    models:
+      topic_locked: "Ce topic est fermé."
+    views:
+      new_category:  "Nouvelle catégorie"
+      new_forum:     "Nouveau forum"
+      new_topic:     "Nouveau Topic"
+      edit_category: "Editer catégorie"
+      edit_forum:    "Editer Forum"
+      delete_category: "Supprimer catégorie"
+      delete_forum:  "Supprimer forum"
+      forum_empty:   "Pas encore de messages"
+      no_forums:     "Pas encore forums"
+      hint_category: "Pour créer une nouvelle catégorie, laissez le champ de sélection de catégorie vide."
+      back_to_forums: "Index forums"
+      replies: "Réponses"
+      viewed:  "Vu"
+      last_post: "Dernier message"
+      by: "par"
+      post_number: "Nombre de posts"
+      registrered: "Inscrit depuis le"
+      posted_at:   "Posté le"
+
+  confirm_deletion: "Êtes-vous certain de vouloir supprimer cela?"
+
+  actions:
+    submit:  "Valider"
+    cancel:  "Annuler"
+    edit:    "Edit"
+    delete:  "Supprimer"
+    lock:    "Verrouiller"
+    unlock:  "Dévérrouiller"
+    stick:   "Epingler"
+    unstick: "Détacher"
+    reply:   "Répondre"
+    quote:   "Citer"

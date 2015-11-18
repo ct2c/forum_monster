@@ -1,19 +1,15 @@
 =Forum Monster {<img src="https://codeclimate.com/github/gitt/forum_monster.png" />}[https://codeclimate.com/github/gitt/forum_monster]
 
-    I've recently just pushed up an initial commit for the new forum monster engine. This will eventually 
-    replace the generator, though I will keep the branch for backwards compatability. I don't generally 
-    have a lot of time for OSS, so I will welcome any pull requests for the engine.
-    
-    You can find the initial engine code in the engine branch.
+Forum Monster is a simple forum generator written in Rails 4. The goal of Forum Monster, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup.
 
-I've re-activated the issue tracker on the Github repository page.
-I will be working on a refactoring of this code, please report any bugs you may find. I will greatly appreciate it.
 *Pull requests welcome!*
-
-Forum Monster is a simple forum generator written in rails 3. The goal of Forum Monster, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
 * Live Demo: http://forum-monster.heroku.com
 * Github Repo for Demo: https://github.com/gitt/forum_monster_demo
+
+====What's new with Forum Monster Rails 4?
+- Category becomes ForumCategory to avoid possibile conflicts with an existing app.
+- Translated forums available.
 
 ====A few things about what Forum Monster is, and is not:
 
@@ -35,7 +31,7 @@ Add the following to your user model to setup the needed associations with user/
 
 Finally, migrate your database
   rake db:migrate
-  
+
 ====Authentication
 
 Forum Monster, as stated before, does not come with any authentication built in. The reason for this is so you can add a forum to your existing application without having to change the way your application works. Forum Monster knows about your user model from the moment you run the installation command.

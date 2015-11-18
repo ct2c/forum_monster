@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   private
     def topic_locked?
       if topic.locked?
-        errors.add(:base, I18n.translate('models.topic_locked'))
+        errors.add(:base, I18n.translate('forums.models.topic_locked'))
         false
       end
     end

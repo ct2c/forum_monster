@@ -35,10 +35,10 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     @singular_lower_case_name = user_model.singularize.underscore
     @plural_lower_case_name = user_model.pluralize.underscore
 
-  	template "models/forum_category.rb", "app/models/forum/forum_category.rb"
-  	template "models/forum.rb", "app/models/forum/forum.rb"
-    template "models/topic.rb", "app/models/forum/topic.rb"
-    template "models/post.rb", "app/models/forum/post.rb"
+  	template "models/forum_category.rb", "app/models/forum_related/forum_category.rb"
+  	template "models/forum.rb", "app/models/forum_related/forum.rb"
+    template "models/topic.rb", "app/models/forum_related/topic.rb"
+    template "models/post.rb", "app/models/forum_related/post.rb"
   end
 
   def create_views

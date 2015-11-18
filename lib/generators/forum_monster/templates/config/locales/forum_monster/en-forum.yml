@@ -1,4 +1,19 @@
 en:
+  activerecord:
+    models:
+      forum:
+        one:   "Forum"
+        other: "Forums"
+      forum_category:
+        one:   "Category"
+        other: "Categories"
+      post:
+        one:   "Post"
+        other: "Posts"
+        last:  "Last post"
+      topic:
+        one:   "Topic"
+        other: "Topics"
   forums:
     controllers:
       categories:
@@ -18,5 +33,38 @@ en:
         created_success: "Topic was successfully created."
         updated_success: "Topic was updated successfully."
         deleted_success: "Topic was deleted successfully."
-  models:
-    topic_locked: "That topic is locked"
+    models:
+      topic_locked: "That topic is locked"
+    views:
+      new_category:    "New category"
+      new_forum:       "New Forum"
+      new_topic:       "New Topic"
+      edit_category:   "Edit Category"
+      edit_forum:      "Edit Forum"
+      delete_category: "Delete Category"
+      delete_forum:    "Delete Forum"
+      forum_empty:     "No Topics / Posts"
+      no_forums:       "There are currently no forums."
+      hint_category: "To create a category, leave the category field unselected."
+      back_to_forums: "Back to Forum List"
+      replies: "Replies"
+      viewed:  "Views"
+      last_post: "Last post"
+      by: "by"
+      post_number: "Posts"
+      registrered: "Registered"
+      posted_at:   "Posted"
+
+  confirm_deletion: "Are you sure you want to delete this?"
+  actions:
+    submit:  "Submit"
+    cancel:  "Cancel"
+    edit:    "Edit"
+    delete:  "Delete"
+    lock:    "Lock"
+    unlock:  "Unlock"
+    stick:   "Stick"
+    unstick: "Unstick"
+    reply:   "Reply"
+    quote:   "Quote"
+

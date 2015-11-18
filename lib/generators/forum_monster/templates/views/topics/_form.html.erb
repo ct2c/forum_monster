@@ -1,36 +1,16 @@
-<%= form_for [@forum, @topic] do |f| %>
-<% if @topic.errors.any? %>
-  <% flash.now[:error] = @topic.errors.full_messages.join(', and ') %>
-<% end %>
-<div class="module">
-  <div class="module_header"><%= action_name.humanize %> Topic</div>
-    <div class="module_subheader smaller"></div>
-    <div class="module_body">
-      <div class="fieldset">
-        <span class="label indent smaller">
-          <%= f.label :title %><br />
-          <small>(Required)</small>
-        </span>
-        <span class="input indent smaller"><%= f.text_field :title, :size => 75 %></span>
-        <div class="clear"></div>
-      </div>
-      <% unless @topic.id %>
-      <div class="fieldset">
-        <span class="label indent smaller">
-          <%= f.label :body %><br />
-          <small>(Required)</small>
-        </span>
-        <span class="input indent smaller"><%= f.text_area :body, :cols => 60, :rows => 15 %></span>
-        <div class="clear"></div>
-      </div>
-    </div>
-    <% end %>
-    <div class="module_footer">
-      <div class="fieldset">
-        <span class="input"><%= f.submit "submit" %> or <%= link_to "cancel", @topic.nil? ?  @topic : @forum %></span>
-        <div class="clear"></div>
+<%= simple_form_for [@forum, @topic] do |f| %>
+  <% if @topic.errors.any? %>
+    <% flash.now[:error] = @topic.errors.full_messages.join(', and ') %>
+  <% end %>
+  <div class="module">
+    <div class="module_header"><%= action_name.humanize %> <%= t('activerecord.models.topic.one')%></div>
+      <div class="module_body">
+        <%= f.input :title, :size => 75 %>
+        <% unless @topic.id %>
+          <%= f.input :body, as: :text, input_html: {:cols => 60, :rows => 15} %>
+        <% end %>
+        <%= f.submit t('actions.submit') %> <%= link_to t('actions.cancel'), @topic.nil? ?  @topic : @forum %>
       </div>
     </div>
   </div>
-</div>
 <% end %>

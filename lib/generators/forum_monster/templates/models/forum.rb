@@ -12,6 +12,6 @@ class Forum < ActiveRecord::Base
   # Validations
   validates :title,       :presence => true
   validates :description, :presence => true
-  validates :category_id, :presence => true
+  validates :forum_category_id, :presence => true
 
 end
