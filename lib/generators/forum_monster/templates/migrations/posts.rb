@@ -5,6 +5,7 @@ class CreatePostsTable < ActiveRecord::Migration
       t.integer  :forum_id
       t.integer  :topic_id
       t.integer  :user_id
+      t.boolean  :deleted, default: false
 
       t.timestamps
     end

@@ -9,7 +9,8 @@
       <span class="controls right smaller">
         <%= link_to t('forums.views.new_forum'), new_forum_path %>
         <%= link_to t('forums.views.edit_category'), edit_forum_category_path(category) %>
-        <%= link_to t('forums.views.delete_category'), forum_category_path(category), :confirm => t('confirm_deletion'), :method => :delete %>
+        <%= link_to t('forums.views.delete_category'), forum_category_path(category),
+        :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
       </span>
     </div>
     <% if category.forums.size > 0 %>

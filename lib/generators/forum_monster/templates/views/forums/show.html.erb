@@ -6,7 +6,8 @@
     <span class="controls right">
       <%= link_to t('forums.views.new_topic'), new_forum_topic_path(@forum) %>
       <%= link_to t('forums.views.edit_forum'), edit_forum_path(@forum) %>
-      <%= link_to t('forums.views.delete_forum'), forum_path(@forum), :confirm => t('confirm_deletion'), :method => :delete %>
+      <%= link_to t('forums.views.delete_forum'), forum_path(@forum),
+      :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
     </span>
   </div>
   <div>
@@ -21,8 +22,12 @@
       <tr>
         <td class="icon"><%= image_tag 'ruby.png' %></td>
         <td class="description">
-          <%= link_to topic.title, topic_path(topic) %><br />
-          <span class="smaller">by <%= topic.user.username %></span>
+          <%= link_to topic.title, topic_path(topic) %>
+          <% if topic.locked? %>
+            <%= t('forums.views.is_locked') %>
+          <% end %>
+          <br />
+          <span class="smaller"><%= t('forums.views.by')%> <%= topic.user.username %></span>
         </td>
         <td class="counts smaller"><%= topic.posts.size - 1 %></td>
         <td class="counts smaller"><%= topic.hits %></td>

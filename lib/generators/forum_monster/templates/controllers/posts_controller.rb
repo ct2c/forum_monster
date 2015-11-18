@@ -41,16 +41,23 @@ class Forum::PostsController  < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.deleted = true
 
     if @post.topic.posts_count > 1
-      if @post.destroy
+      if @post.save
         flash[:notice] = t('forums.controllers.posts.destroy_success')
         redirect_to topic_path(@post.topic)
+      else
+        redirect_to topic_path(@post.topic), alert: "#{@post.errors.full_messages}"
       end
     else
-      if @post.topic.destroy
+      if @post.save
+        @post.topic.update_columns(locked: true)
+
         flash[:notice] = t('forums.controllers.posts.topic_destroy_success')
         redirect_to forum_path(@post.forum)
+      else
+        redirect_to forum_path(@post.forum), alert: "#{@post.errors.full_messages}"
       end
     end
   end

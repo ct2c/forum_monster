@@ -8,7 +8,7 @@
         <%= link_to t('forums.views.new_forum'), new_forum_path %>
         <%= link_to t('forums.views.edit_category'), edit_forum_path(category) %>
         <%= link_to t('forums.views.delete_category'), forum_path(category),
-        :confirm => t('confirm_deletion'),
+        :data => {:confirm => t('confirm_deletion')},
         :method => :delete %>
       </span>
     </div>
