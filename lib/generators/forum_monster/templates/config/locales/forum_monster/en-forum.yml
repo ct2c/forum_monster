@@ -14,6 +14,16 @@ en:
       topic:
         one:   "Topic"
         other: "Topics"
+    attributes:
+      forum_category:
+        title:    "Title"
+        position: "Position"
+        state:    "Publié"
+      topic:
+        title: "Title"
+        body:  "Body"
+      post:
+        body: "Body"
   forums:
     controllers:
       categories:
@@ -52,7 +62,7 @@ en:
       last_post: "Last post"
       by: "by"
       post_number: "Posts"
-      registrered: "Registered"
+      registered: "Registered"
       posted_at:   "Posted"
 
   confirm_deletion: "Are you sure you want to delete this?"
@@ -67,4 +77,4 @@ en:
     unstick: "Unstick"
     reply:   "Reply"
     quote:   "Quote"
-
+    new:     "New"

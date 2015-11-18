@@ -1,6 +1,6 @@
 <div class="module">
   <div class="module_header">
-    <%= action_name.humanize %> <%= t('activerecord.models.forum_category.one')%>
+    <%= t("action.#{action_name}") %> <%= t('activerecord.models.forum_category')%>
   </div>
 
   <%= simple_form_for @category do |f| %>
@@ -9,8 +9,7 @@
     <% end %>
     <%= f.input :title %>
     <%= f.input :position %>
-    <%= f.input :state, as: :check_boxes %>
-    <%= f.label :state %>
+    <%= f.input :state, as: :boolean %>
     <%= f.submit t('actions.submit') %> <%= link_to t('actions.cancel'), forums_path %>
   <% end %>
 </div>

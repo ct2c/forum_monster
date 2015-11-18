@@ -1,6 +1,6 @@
 <div class="module">
   <div class="module_header">
-    <%= action_name.humanize %> <%= t('activerecord.models.forum.one')%>
+    <%= t("action.#{action_name}") %> <%= t('activerecord.models.forum')%>
   </div>
   <div class="module_subheader smaller">
     <em><%= t('forums.views.hint_category')%></em>
@@ -8,15 +8,15 @@
   <div class="module_body">
     <%= simple_form_for @forum do |f| %>
       <% if @forum.errors.any? %>
-        <% flash.now[:error] = @forum.errors.full_messages.join(', and ') %>
+        <% flash.now[:error] = @forum.errors.full_messages.join(', ') %>
       <% end %>
-      <%= f.input :forum_category_id, as: :select, ForumCategory.all, :id, :title%>
+      <%= f.input :forum_category_id, as: :select, collection: ForumCategory.all.map{|x| [x.title, x.id]} %>
       <%= f.input :title, :size => 75 %>
       <%= f.input :description, as: :text,
         input_html: {:cols => 60, :rows => 5}
       %>
       <%= f.input :position %>
-      <%= f.input :state, as: :check_boxes %>
+      <%= f.input :state, as: :boolean %>
 
       <%= f.submit t('actions.submit') %> <%= link_to t('actions.cancel'), @forum.nil? ? forum_path(@forum) : forums_path %>
     <% end %>

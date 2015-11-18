@@ -1,11 +1,11 @@
 <div class="module">
   <div class="module_header">
-    <%= action_name.humanize %> <%= t('activerecord.models.post.one')%>
+    <%= t("action.#{action_name}") %> <%= t('activerecord.models.post')%>
   </div>
   <div class="module_body">
     <%= simple_form_for [@topic, @post] do |f| %>
       <% if @post.errors.any? %>
-        <% flash.now[:error] = @post.errors.full_messages.join(', and ') %>
+        <% flash.now[:error] = @post.errors.full_messages.join(', ') %>
       <% end %>
       <%= f.input :body, as: :text, input_html: {:cols => 60, :rows => 15} %>
       <%= f.submit t('actions.submit') %> <%= link_to t('actions.cancel'), @topic %>

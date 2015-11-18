@@ -1,4 +1,5 @@
 <div class="right controls"><%= link_to t('forums.views.back_to_forums'), forums_path %></div>
+<br/>
 <div class="module">
   <div class="module_header">
     <%= @topic.title %>
@@ -16,7 +17,7 @@
       <% @topic.posts.each do |post| %>
       <tr>
         <td class="post_author" rowspan="2">
-          <span class="name"><%= post.user.username %></span>
+          <span class="name"><%= post.user.username %></span><br/>
           <span class="avatar"><!-- This space reserved for Avatar --></span>
           <span class="info smaller">
             <%= t('forums.views.post_number') %> <%= post.user.posts.size %>
@@ -33,7 +34,7 @@
             <%= link_to t('actions.reply'), new_topic_post_path(@topic) %>
             <%= link_to t('actions.quote'), new_topic_post_path(@topic, :quote => post) %>
             <%= link_to t('actions.edit'), edit_post_path(post) %>
-            <%= link_to t('actions.delete'), post, :confirm => "Are you sure?", :method => :delete %>
+            <%= link_to t('actions.delete'), post, :confirm => t('confirm_deletion'), :method => :delete %>
           </span>
         </td>
       </tr>
