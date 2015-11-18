@@ -12,8 +12,8 @@ fr:
         other: "Messages"
         last:  "Dernier post"
       topic:
-        one:   "Topic"
-        other: "Topics"
+        one:   "Sujet"
+        other: "Sujets"
     attributes:
       forum_category:
         title:    "Titre"
