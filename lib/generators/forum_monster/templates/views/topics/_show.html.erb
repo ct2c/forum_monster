@@ -54,7 +54,7 @@
       </tr>
       <tr>
         <td class="post_body">
-          <% if post.deleted %>
+          <% if !post.deleted %>
             <%= simple_format(post.body) %>
           <% else %>
             <%= t('forums.views.post_deleted') %>
