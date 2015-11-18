@@ -1,6 +1,7 @@
 <div class="right controls">
   <%= link_to t('forums.views.new_category'), new_forum_category_path %>
 </div>
+<br/>
 <% @categories.each do |category| %>
   <div class="module">
     <div class="module_header">
@@ -31,7 +32,7 @@
             <td class="counts smaller"><%= forum.posts.size - forum.topics.size %></td>
             <td class="last_post smaller">
               <% if forum.posts.size > 0 %>
-                <%= forum.posts.last.created_at %><br />
+                <%= l(forum.posts.last.created_at, format: :default) %><br />
                 <%= forum.posts.last.user.username %>
               <% else %>
                 <%= t('forums.views.forum_empty') %>

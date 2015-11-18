@@ -66,6 +66,7 @@ en:
       post_number: "Posts"
       registered: "Registered"
       posted_at:   "Posted"
+      topic_locked: "Topic locked."
 
   confirm_deletion: "Are you sure you want to delete this?"
   actions:

@@ -23,7 +23,7 @@ fr:
         state: "Publié?"
       topic:
         title: "Titre"
-        body: "Description"
+        body: "Message"
       post:
         body: "Texte"
   forums:
@@ -66,6 +66,7 @@ fr:
       post_number: "Nombre de posts"
       registered: "Inscrit depuis le"
       posted_at:   "Posté le"
+      topic_locked: "Ce sujet est verrouillé."
 
   confirm_deletion: "Êtes-vous certain de vouloir supprimer cela?"
 
