@@ -1,1 +1,2 @@
+<%= render partial: 'forum/topics/show', locals: {topic: @topic, posts: @topic.posts.last(2)} %>
 <%= render :partial => 'form' %>
