@@ -1,6 +1,6 @@
 <div class="right controls">
   <%= link_to t('forums.views.back_to_forums'), forums_path %>
-  <%= link_to topic.forum.title.first(150), forum_path(topic.forum) %>
+  <%= link_to topic.forum.title.first(150).humanize, forum_path(topic.forum) %>
 </div>
 <br/>
 <div class="module">
