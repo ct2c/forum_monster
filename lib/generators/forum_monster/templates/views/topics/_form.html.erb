@@ -3,7 +3,7 @@
     <% flash.now[:error] = @topic.errors.full_messages.join(', ') %>
   <% end %>
   <div class="module">
-    <div class="module_header"><%= t("action.#{action_name}") %> <%= t('activerecord.models.topic')%></div>
+    <div class="module_header"><%= t("action.#{action_name}") %> <%= t('activerecord.models.topic.one')%></div>
       <div class="module_body">
         <%= f.input :title, :size => 75 %>
         <% unless @topic.id %>
