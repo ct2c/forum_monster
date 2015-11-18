@@ -19,6 +19,8 @@ en:
         title:    "Title"
         position: "Position"
         state:    "Publié"
+      forum:
+        state: "Publié?"
       topic:
         title: "Title"
         body:  "Body"

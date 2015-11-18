@@ -34,7 +34,7 @@
                 <%= forum.posts.last.created_at %><br />
                 <%= forum.posts.last.user.username %>
               <% else %>
-                <%= t('views.forum_empty') %>
+                <%= t('forums.views.forum_empty') %>
               <% end %>
             </td>
           </tr>
@@ -42,7 +42,7 @@
         </table>
       </div>
     <% else %>
-      <div class="module_body"><%= t('views.no_forums')%></div>
+      <div class="module_body"><%= t('forums.views.no_forums')%></div>
     <% end %>
   </div>
 <% end %>
