@@ -4,7 +4,7 @@
   <div class="module_header">
     <%= @forum.title %>
     <span class="controls right">
-      <%= render partial: "forum/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: @forum} %>
+      <%= render partial: "forum/shared/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: @forum} %>
     </span>
   </div>
   <div>

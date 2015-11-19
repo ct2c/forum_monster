@@ -7,7 +7,7 @@
     <div class="module_header">
       <%= category.title %>
       <span class="controls right smaller">
-        <%= render partial: "forum/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: category} %>
+        <%= render partial: "forum/shared/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: category} %>
       </span>
     </div>
     <% if category.forums.size > 0 %>

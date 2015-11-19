@@ -1,5 +1,5 @@
 
-<% case ref %>
+<% case ref.to_s %>
 <% when "forum_categories_index" %>
   <%= link_to t('forums.views.new_forum'), new_forum_path %>
   <%= link_to t('forums.views.edit_category'), edit_forum_category_path(obj) %>

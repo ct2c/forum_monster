@@ -7,7 +7,7 @@
   <div class="module_header">
     <%= topic.title %>
     <span class="right controls">
-      <%= render partial: "forum/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: topic} %>
+      <%= render partial: "forum/shared/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: topic} %>
     </span>
   </div>
   <div>
