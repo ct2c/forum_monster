@@ -7,10 +7,7 @@
     <div class="module_header">
       <%= category.title %>
       <span class="controls right smaller">
-        <%= link_to t('forums.views.new_forum'), new_forum_path %>
-        <%= link_to t('forums.views.edit_category'), edit_forum_category_path(category) %>
-        <%= link_to t('forums.views.delete_category'), forum_category_path(category),
-        :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+        <%= render partial: "forum/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: category} %>
       </span>
     </div>
     <% if category.forums.size > 0 %>

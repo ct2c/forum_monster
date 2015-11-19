@@ -1,0 +1,26 @@
+
+<% case ref %>
+<% # ref = "#{controller_name}_#{action_name}" %>
+<% when "forum_categories_index" %>
+  <%= link_to t('forums.views.new_forum'), new_forum_path %>
+  <%= link_to t('forums.views.edit_category'), edit_forum_category_path(obj) %>
+  <%= link_to t('forums.views.delete_category'), forum_category_path(obj),
+  :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+<% when "forums_show"%>
+  <%= link_to t('forums.views.new_topic'), new_forum_topic_path(obj) %>
+  <%= link_to t('forums.views.edit_forum'), edit_forum_path(obj) %>
+  <%= link_to t('forums.views.delete_forum'), forum_path(obj),
+      :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+<% when "topics_show" %>
+  <% if current_user == obj.user %>
+    <%= link_to t('actions.edit'), edit_topic_path(obj) %>
+    <%= link_to t('actions.delete'), obj,
+      :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+    <% if controller_name != "PostController" && action_name != 'new' %>
+      <%= link_to obj.sticky ? t('actions.unstick') : t('actions.stick'),
+        {:controller => 'topics', :action => 'update', :topic => {:sticky => obj.sticky ? "false" : "true" }}, :method => :put %>
+      <%= link_to obj.locked ? t('actions.unlock') : t('actions.lock'),
+        {:controller => 'topics', :action => 'update', :topic => {:locked => obj.locked ? "false" : "true" }}, :method => :put %>
+    <% end %>
+  <% end %>
+<% end %>

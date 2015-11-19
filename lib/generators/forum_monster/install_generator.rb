@@ -46,6 +46,7 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     directory "views/forums", "app/views/forum/forums"
     directory "views/topics", "app/views/forum/topics"
     directory "views/posts", "app/views/forum/posts"
+    template  "views/_actions.html.erb", "app/views/forum/_actions.html.erb"
     template  "public/stylesheets/forum-monster.css", "public/stylesheets/forum-monster.css"
     template  "public/images/ruby.png", "public/images/ruby.png"
   end

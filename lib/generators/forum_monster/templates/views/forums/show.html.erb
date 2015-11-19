@@ -4,10 +4,7 @@
   <div class="module_header">
     <%= @forum.title %>
     <span class="controls right">
-      <%= link_to t('forums.views.new_topic'), new_forum_topic_path(@forum) %>
-      <%= link_to t('forums.views.edit_forum'), edit_forum_path(@forum) %>
-      <%= link_to t('forums.views.delete_forum'), forum_path(@forum),
-      :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+      <%= render partial: "forum/actions", locals: {ref: "#{controller_name}_#{action_name}", obj: @forum} %>
     </span>
   </div>
   <div>
