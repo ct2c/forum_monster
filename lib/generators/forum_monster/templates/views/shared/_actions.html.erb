@@ -11,15 +11,23 @@
   <%= link_to t('forums.views.delete_forum'), forum_path(obj),
       :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
 <% when "topics_show" %>
-  <% if current_user == obj.user %>
-    <%= link_to t('actions.edit'), edit_topic_path(obj) %>
-    <%= link_to t('actions.delete'), obj,
-      :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
-    <% if controller_name != "PostController" && action_name != 'new' %>
-      <%= link_to obj.sticky ? t('actions.unstick') : t('actions.stick'),
-        {:controller => 'topics', :action => 'update', :topic => {:sticky => obj.sticky ? "false" : "true" }}, :method => :put %>
-      <%= link_to obj.locked ? t('actions.unlock') : t('actions.lock'),
-        {:controller => 'topics', :action => 'update', :topic => {:locked => obj.locked ? "false" : "true" }}, :method => :put %>
+  <% post ||= nil %>
+  <% if !post.nil? %>
+      <%= link_to t('actions.reply'), new_topic_post_path(obj) %>
+      <%= link_to t('actions.quote'), new_topic_post_path(obj, :quote => post) %>
+      <% if current_user == post.user %>
+        <%= link_to t('actions.edit'), edit_post_path(post) %>
+        <%= link_to t('actions.delete'), post, :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
+      <% end %>
+  <% else %>
+    <% if current_user == obj.user %>
+      <%= link_to t('actions.edit'), edit_topic_path(obj) %>
+      <% if controller_name != "PostController" && action_name != 'new' %>
+        <%= link_to obj.sticky ? t('actions.unstick') : t('actions.stick'),
+          {:controller => 'topics', :action => 'update', :topic => {:sticky => obj.sticky ? "false" : "true" }}, :method => :put %>
+        <%= link_to obj.locked ? t('actions.unlock') : t('actions.lock'),
+          {:controller => 'topics', :action => 'update', :topic => {:locked => obj.locked ? "false" : "true" }}, :method => :put %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

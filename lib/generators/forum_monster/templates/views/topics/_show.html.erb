@@ -38,12 +38,11 @@
             </span>
           <% else %>
             <span class="right controls">
-              <%= link_to t('actions.reply'), new_topic_post_path(topic) %>
-              <%= link_to t('actions.quote'), new_topic_post_path(topic, :quote => post) %>
-              <% if current_user == post.user %>
-                <%= link_to t('actions.edit'), edit_post_path(post) %>
-                <%= link_to t('actions.delete'), post, :data => {:confirm => t('confirm_deletion')}, :method => :delete %>
-              <% end %>
+              <%= render partial: "forum/shared/actions",
+                  locals: {
+                    ref: "#{controller_name}_#{action_name}",
+                    obj: topic,
+                    post: post} %>
             </span>
           <% end %>
         </td>
