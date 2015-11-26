@@ -25,6 +25,14 @@ class Topic < ActiveRecord::Base
     self.class.increment_counter :hits, id
   end
 
+  def locked?
+    self.locked.to_s == "true" ? true : false
+  end
+
+  def sticked?
+    self.sticky.to_s == "true" ? true : false
+  end
+
   private
     def create_initial_post
       self.posts.build(:body => self.body).tap do |post|
